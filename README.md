@@ -1,131 +1,129 @@
-# Twitter Clone DApp - README
 
-## Overview
+#  SmartFacebook DApp
+SmartFacebook is a decentralized social media platform that leverages blockchain technology to provide users with a secure, transparent, and rewarding social networking experience. Users can post, interact with content, and earn rewards through custom ERC-20 tokens, all while enjoying the benefits of decentralization.
 
-This project is a decentralized application (DApp) that serves as a Twitter clone, built with blockchain technology. The DApp allows users to post tweets (messages) that are stored on the blockchain, ensuring transparency, immutability, and security. The app includes token-based authentication for login, MetaMask wallet connection verification during signup, and features such as Like, Comment, and Retweet, which are also stored on the blockchain.
+# Features
+Core Functionalities
+User Interactions
+Post Creation: Users can create posts with text and optional media (image or video links).
+Engagement: Users can like, comment on, and share posts.
+Spin the Wheel: Gamified feature allowing users to earn random rewards in tokens.
+Token Rewards
+Reward Distribution: Users earn RewardTokens for posting content.
+Spin Rewards: Users spend tokens to spin a wheel and win additional rewards.
+Tokens can be tracked, transferred, and utilized on the platform.
+User Profiles
+Set and update profile pictures.
+Track earned rewards and activity.
 
-## Key Features
-- **Post Tweets**: Users can write and post tweets that are stored on the blockchain.
-- **Like, Comment, and Retweet**: All interactions such as likes, comments, and retweets are recorded on the blockchain.
-- **Blockchain-based Storage**: Tweets and interactions are permanently stored on the Ethereum blockchain, providing decentralization and security.
-- **Token-Based Authentication**: Secure login system using tokens for authentication.
-- **MetaMask Integration**: User signup verifies the connection to a MetaMask wallet for secure account management.
+# Application Workflow
 
-## Tech Stack
-- **Smart Contracts (Solidity)**: Smart contracts are developed and deployed using Hardhat to handle tweets, likes, comments, and retweets on the blockchain.
-- **Hardhat**: A development environment to compile, deploy, and test Ethereum smart contracts.
-- **Backend (Node.js & Express)**: Backend server for handling authentication, user sessions, and interacting with the smart contracts.
-- **Frontend (React.js)**: A user-friendly interface built with React.js that interacts with the blockchain through MetaMask and the backend API.
+Create posts with textual and media content.
+Engage with other users’ posts through likes, comments, and shares.
+Monitor reward balances in real-time.
+Role-Specific Functionalities
+Users:
+Create and manage posts.
+Interact with content (like, comment, share).
+Participate in gamified spin-the-wheel rewards.
+Manage their profile information.
+Admins:
+Oversee the contract and platform usage.
+Ensure smooth token operations and data flow.
+### Tech Stack
+Smart Contract: Solidity
+Blockchain: Ethereum-compatible networks
+Token Standard: ERC-20 (RewardToken)
+Development Tools:
+OpenZeppelin for secure ERC-20 implementation.
+Remix and Hardhat for smart contract development.
+Frontend: Can be integrated with React.js or similar frameworks for user interaction.
 
-## Project Structure
+### Smart Contract Overview
+1. FacebookContract
+This contract handles the core logic of the decentralized platform, including:
 
-```
-/hardhat       - Smart contracts and blockchain-related scripts.
-/frontend      - React.js application for the client-side of the DApp.
-/backend       - Node.js server for API and token-based authentication.
-```
+Post Management: Adding and storing posts on-chain.
+User Engagement: Tracking likes, comments, and shares.
+Reward Distribution: Minting tokens for user activity.
+Gamification: Enabling the spin-the-wheel feature for random token rewards.
+2. RewardToken
+An ERC-20 token designed to incentivize user engagement. Key features:
+Minting tokens for rewarding users.
+Secure transfer and allowance functionalities.
+Fully compliant with the ERC-20 standard.
 
-## Setup Instructions
+# Key Functionalities
+1. Post Management
+Add posts with text and optional media.
+Store and retrieve posts on-chain for full transparency.
+2. User Engagement
+Users can:
+Like posts.
+Comment on posts.
+Share posts with new content or media.
+3. Rewards System
+Earn RewardTokens for creating posts.
+Spend tokens to spin the wheel and win random rewards.
+4. Gamification
+Spin the Wheel: Users can:
+Spend 2 tokens to spin.
+Earn a random reward between 10–50 tokens.
+Security Features
+Access Control: Role-based permissions for minting and spending tokens.
+Randomness: A pseudo-random generator for spin-the-wheel rewards (can be enhanced with Chainlink VRF).
+Transparency: All actions (posts, likes, comments, rewards) are logged via blockchain events.
 
-### Prerequisites
-- **Node.js**: Ensure you have Node.js installed on your machine.
-- **MetaMask**: MetaMask wallet extension installed in your browser.
-- **Hardhat**: Hardhat installed globally for smart contract development.
+### How to Use
+Deployment
+Deploy the RewardToken contract.
+Deploy the FacebookContract with the token contract address.
+Frontend Integration
+Use web3.js or ethers.js to connect the frontend to the contracts.
+Enable wallet connection for user authentication and interaction.
+User Interaction
+Connect wallet to the DApp.
+Interact with the platform:
+Create posts.
+Like, comment, or share posts.
+Earn and track rewards.
+Use earned tokens to spin the reward wheel.
+Events for Transparency
+The platform emits events to track user actions:
 
-### Clone the Repository
-```bash
-git clone https://github.com/your-username/twitter-clone-dapp.git
-cd twitter_clone_app
-```
-
-### Backend Setup
-1. Navigate to the backend folder:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the backend server:
-   ```bash
-   npm start
-   ```
-
-### Frontend Setup
-1. Navigate to the frontend folder:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-### Hardhat Setup (Smart Contracts)
-1. Navigate to the hardhat folder:
-   ```bash
-   cd hardhat
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Run a local Ethereum blockchain using Hardhat:
-   ```bash
-   npx hardhat node
-   ```
-
-4. Compile and deploy the smart contracts:
-   ```bash
-   npx hardhat compile
-   npx hardhat run scripts/deploy.js --network localhost
-   ```
-
-### Connecting Frontend to Backend
-Make sure both the frontend and backend are running on their respective ports, and the blockchain is running locally via Hardhat. The frontend will automatically interact with the backend and blockchain.
-
-## Usage
-
-1. **MetaMask Connection**: Open the frontend in your browser, and you'll be prompted to connect your MetaMask wallet.
-2. **Signup/Login**: Once connected, you can sign up using your MetaMask wallet, and token-based authentication will secure your session.
-3. **Tweeting**: Post messages that will be stored on the blockchain.
-4. **Liking/Commenting/Retweeting**: Interact with other tweets, and all actions will be recorded on the blockchain.
-
-## Scripts
-
-- **Backend**: Start the server
-  ```bash
-  cd backend && npm start
-  ```
-
-- **Frontend**: Start the development server
-  ```bash
-  cd frontend && npm run dev
-  ```
-
-- **Hardhat**: Run local Ethereum blockchain
-  ```bash
-  cd hardhat && npx hardhat node
-  ```
-
-## 🎥 Demo Video
+NewPost: Logs details of a new post.
+NewLike: Tracks likes on posts.
+NewComment: Logs comments with user details.
+RewardIssued: Logs token rewards issued to users.
+SpinResult: Tracks spin wheel outcomes.
+Future Enhancements
+Improved Randomness: Integrate Chainlink VRF for true randomness.
+Enhanced UI: Develop an intuitive, feature-rich frontend.
+Layer 2 Support: Implement scaling solutions for cost-efficient transactions.
+Content Monetization: Allow users to monetize posts and content.
 
 
-[![Watch the video](https://github.com/nandanaraju/Twitter_clone_app/blob/main/frontend/src/assets/images/Untitled%20design.png)](https://www.youtube.com/watch?v=qdYUUF4QCqA)
+#  Tech Stack Highlights
+Smart Contract: Solidity for business logic and Ethereum Virtual Machine compatibility.
 
-## Contributing
+Token Standards: ERC-20 for token rewards.
 
-Feel free to fork this repository and submit pull requests. Contributions and improvements are always welcome!
+Blockchain Development Tools: Hardhat, Remix, and OpenZeppelin.
 
-## License
+Frontend Framework: React.js (or similar) for user interface.
+Contributing
+Contributions are welcome! To get started:
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Fork the repository.:https://github.com/maneeshmadhusudhanan/FacebookCloneDapp
+Create a new branch.
+Commit your changes.
+Open a pull request.
+### License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute as per the license terms.
 
----
 
-Enjoy building on the blockchain and exploring decentralized applications with this Twitter clone DApp!
+
+Email: maneeshroks@gmail.com.com
+GitHub: SmartFacebook DApp-https://github.com/maneeshmadhusudhanan/FacebookCloneDapp
+
+youtube link to Smart Facebook Dapp :https://youtu.be/f35PBEUn7q8
